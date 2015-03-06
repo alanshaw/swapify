@@ -1,4 +1,4 @@
-# swapify
+# swapify [![Build Status](https://travis-ci.org/alanshaw/swapify.svg?branch=master)](https://travis-ci.org/alanshaw/swapify) [![Dependency Status](https://david-dm.org/alanshaw/swapify.svg)](https://david-dm.org/alanshaw/swapify)
 Swap out your requires!
 
 ## Example
