@@ -48,13 +48,13 @@ function parse (data, opts) {
         }
       }
 
-      var swap = opts.swaps[swapRegex.source]
-
-      if (swap[0] == '.') {
-        swap = process.cwd() + '/' + swap
-      }
-
       if (swapRegex) {
+        var swap = opts.swaps[swapRegex.source]
+
+        if (swap[0] == '.') {
+          swap = process.cwd() + '/' + swap
+        }
+
         node.update('"' + swap + '"')
       }
     }
