@@ -1,0 +1,29 @@
+{
+  "name": "nwockify",
+  "version": "0.0.0",
+  "description": "Mock nw requires",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/test.js"
+  },
+  "keywords": [
+    "nw",
+    "nwjs",
+    "node-webkit",
+    "webkit",
+    "mock",
+    "browserify",
+    "transform"
+  ],
+  "author": "Alan Shaw",
+  "license": "ISC",
+  "dependencies": {
+    "falafel": "^1.0.1",
+    "through2": "^0.6.3",
+    "xtend": "^4.0.0"
+  },
+  "devDependencies": {
+    "concat-stream": "^1.4.7",
+    "tape": "^3.5.0"
+  }
+}
