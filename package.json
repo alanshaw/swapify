@@ -26,5 +26,16 @@
   "devDependencies": {
     "concat-stream": "^1.4.7",
     "tape": "^3.5.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alanshaw/swapify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alanshaw/swapify/issues"
+  },
+  "homepage": "https://github.com/alanshaw/swapify"
 }
