@@ -1,6 +1,6 @@
 {
   "name": "swapify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Swap out your requires",
   "main": "index.js",
   "scripts": {
