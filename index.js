@@ -1,13 +1,11 @@
 var through = require('through2')
 var falafel = require('falafel')
-var xtend = require('xtend')
-var mock = require('./mock')
 
 module.exports = function (file, opts) {
   if (/\.json$/.test(file)) return through()
 
   opts = opts || {}
-  opts.mock = xtend(mock, opts.mock)
+  opts.swaps = opts.swaps || {}
 
   var data = ""
 
@@ -27,23 +25,31 @@ module.exports = function (file, opts) {
   )
 }
 
-var nwRegex = /^nw/
-
 function parse (data, opts) {
+  var swapRegexs = Object.keys(opts.swaps).map(function (r) {
+    return new RegExp(r)
+  })
+
   return falafel(data, function (node) {
 
     if (node.type == 'Literal' &&
-        nwRegex.test(node.value) &&
         node.parent &&
         node.parent.type == 'CallExpression' &&
         node.parent.callee &&
         node.parent.callee.type == 'Identifier' &&
         node.parent.callee.name == 'require') {
 
-      var lib = node.value.replace('nw.', '')
+      var swapRegex = null
 
-      if (opts.mock[lib]) {
-        node.parent.update('(' + opts.mock[lib].toString() + ')()')
+      for (var i = 0; i < swapRegexs.length; i++) {
+        if (swapRegexs[i].test(node.value)) {
+          swapRegex = swapRegexs[i]
+          break
+        }
+      }
+
+      if (swapRegex) {
+        node.update('"' + opts.swaps[swapRegex.source] + '"')
       }
     }
   })
