@@ -1,10 +1,21 @@
 var through = require('through2')
 var falafel = require('falafel')
+var findParentDir = require('find-parent-dir')
+var xtend = require('xtend')
+
+var packageOptions = (function () {
+  try { 
+    var dir = findParentDir.sync(process.cwd(), 'package.json')
+    console.log(dir)
+    if (dir) return require(dir + '/package.json').swapify || {}
+  } catch (er) {}
+  return {}
+})()
 
 module.exports = function (file, opts) {
   if (/\.json$/.test(file)) return through()
 
-  opts = opts || {}
+  opts = xtend(packageOptions, opts)
   opts.swaps = opts.swaps || {}
 
   var data = ""

@@ -20,11 +20,13 @@
   "license": "ISC",
   "dependencies": {
     "falafel": "^1.0.1",
-    "through2": "^0.6.3"
+    "find-parent-dir": "^0.3.0",
+    "through2": "^0.6.3",
+    "xtend": "^4.0.0"
   },
   "devDependencies": {
     "concat-stream": "^1.4.7",
-    "tape": "^3.5.0"
+    "tape": "^4.0.0"
   },
   "directories": {
     "test": "test"
