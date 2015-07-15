@@ -6,7 +6,6 @@ var xtend = require('xtend')
 var packageOptions = (function () {
   try { 
     var dir = findParentDir.sync(process.cwd(), 'package.json')
-    console.log(dir)
     if (dir) return require(dir + '/package.json').swapify || {}
   } catch (er) {}
   return {}
