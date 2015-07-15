@@ -13,7 +13,7 @@ var packageOptions = (function () {
 })()
 
 module.exports = function (file, opts) {
-  if (/\.json$/.test(file)) return through()
+  if (!/\.js$/.test(file)) return through()
 
   opts = xtend(packageOptions, opts)
   opts.swaps = opts.swaps || {}
